@@ -1,7 +1,9 @@
 class Solution(object):
     def isPalindrome(self, x):
-        x = str(x)
-        for i in range(len(x)):
-            if x[i] == x[len(x)-i-1]:
-                return True
-        return False 
+        if x < 0:
+            return False      # for negitive values 
+        x = str(x)            # converting to str because len() is applied to strings not for int values 
+        for i in range(len(x)):     
+            if x[i] != x[len(x)-i-1]:
+                return False
+        return True
