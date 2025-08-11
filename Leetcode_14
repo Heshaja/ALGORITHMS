@@ -1,0 +1,11 @@
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        if not strs:
+            return ""
+        common = ""
+        for i in zip(*strs):
+            if len(set(i)) == 1 :
+                common = common + i[0]
+            else: 
+                break 
+        return common
