@@ -1,0 +1,16 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        list2 = []
+        for i in range(len(nums)):
+
+            if nums[i] not in list2 :
+                list2.append(nums[i])
+
+   # now we should update nums list as in output they asked to update the nums 
+        for i in range(len(list2)):  
+            nums[i] = list2[i]
+            
+        return len(list2)  # returns the how many values present after removing duplicates 
+            
+
+        
