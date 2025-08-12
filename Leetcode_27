@@ -1,0 +1,16 @@
+class Solution(object):
+    def removeElement(self, nums, val):
+
+        list1 = []
+
+        for i in range(len(nums)):
+            if nums[i] != val :
+                list1.append(nums[i])
+
+        for i in range(len(list1)):
+            nums[i] = list1[i]   # here we are just changing the some elements upto length of list1 but after that nums have orginal list values 
+
+        # so we need to return the length of list2 not nums 
+        return len(list1)
+
+        
