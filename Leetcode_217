@@ -1,0 +1,14 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        set1 = set()         
+        count = 0 
+        for i in range(len(nums)):
+            if nums[i] not in set1 :
+                set1.add(nums[i])
+            else : 
+                count += 1
+        
+        if count> 0 :
+            return True 
+        else :
+            return False
