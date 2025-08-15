@@ -1,0 +1,31 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        return self.array_sum(nums, 0, len(nums) - 1)
+    
+    def array_sum(self , nums , left , right):
+        if left == right :
+            return nums[left]
+
+        mid = (left+right) // 2 
+
+        leftsum = self.array_sum(nums , left , mid)
+        rightsum = self.array_sum(nums,mid+1, right )
+        crossum = self.mid_array_sum(nums , left , right,mid)
+
+        return max(leftsum , rightsum , crossum)
+
+    def mid_array_sum(self, nums, left, right , mid):
+        left_max = float('-inf')
+        sum = 0 
+        for i in range(mid , left-1,-1):
+            sum = sum + nums[i]
+            left_max = max(left_max , sum)
+
+        right_max = float('inf')
+        sum= 0 
+        for i in range(mid+1 , right+1):
+            sum = sum + nums[i]
+            right_max = max(right_max , sum )
+
+        return left_max + right_max
+        
